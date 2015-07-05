@@ -36,7 +36,13 @@ function init() {
 function loadCallback () {	
 	// Enable the button actions
 	
-	
+	if(app.internetconnection == 'No network connection')
+	{
+		
+		var user = JSON.parse(localStorage.getItem('HelloClass'));
+		var x = document.getElementById("mytextarea");
+		x.value =user.message;
+	} 
 	enableButtons ();
 }
 
@@ -94,8 +100,8 @@ function sayHelloCallback (response) {
 			var user = JSON.parse(localStorage.getItem('HelloClass'));
 			var x = document.getElementById("mytextarea");
 			x.value = user.message;
-		}
-	else				
+		} 
+	else				  
 	{
 	alert(response.message);	
 	}

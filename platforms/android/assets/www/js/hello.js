@@ -36,7 +36,13 @@ function init() {
 function loadCallback () {	
 	// Enable the button actions
 	
-	
+	if(app.internetconnection == 'No network connection')
+	{
+		
+		var user = JSON.parse(localStorage.getItem('HelloClass'));
+		var x = document.getElementById("mytextarea");
+		x.value =user.message;
+	} 
 	enableButtons ();
 }
 
@@ -88,11 +94,20 @@ function sayHelloCallback (response) {
 	     Id : response.id,
 	    message: response.message 
 	}));   
-	alert(response.name);	
-	var user = JSON.parse(localStorage.getItem('HelloClass'));
-	console.log( app.internetconnection);
-	var x = document.getElementById("mytextarea");
-	x.value = user.message;
+	if(app.internetconnection == 'No network connection')
+		{
+			alert("No Internet Connection try ot strore");
+			var user = JSON.parse(localStorage.getItem('HelloClass'));
+			var x = document.getElementById("mytextarea");
+			x.value = user.message;
+		} 
+	else				  
+	{
+	alert(response.message);	
+	}
+	
+	//console.log( app.internetconnection);
+	
 }
 
 

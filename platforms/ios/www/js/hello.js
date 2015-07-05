@@ -35,6 +35,14 @@ function init() {
  */
 function loadCallback () {	
 	// Enable the button actions
+	
+	if(app.internetconnection == 'No network connection')
+	{
+		
+		var user = JSON.parse(localStorage.getItem('HelloClass'));
+		var x = document.getElementById("mytextarea");
+		x.value =user.message;
+	} 
 	enableButtons ();
 }
 
@@ -69,7 +77,7 @@ function greetGenerically () {
 function greetByName () {
 	// Get the name from the name_field element
 	var name = document.getElementById("name_field").value;
-	
+	 
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
@@ -81,7 +89,25 @@ function greetByName () {
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
+	
+	localStorage.setItem("HelloClass", JSON.stringify({
+	     Id : response.id,
+	    message: response.message 
+	}));   
+	if(app.internetconnection == 'No network connection')
+		{
+			alert("No Internet Connection try ot strore");
+			var user = JSON.parse(localStorage.getItem('HelloClass'));
+			var x = document.getElementById("mytextarea");
+			x.value = user.message;
+		} 
+	else				  
+	{
 	alert(response.message);	
+	}
+	
+	//console.log( app.internetconnection);
+	
 }
 
 
