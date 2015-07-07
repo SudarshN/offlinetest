@@ -13,3 +13,30 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-07-04 18:23:21.303 OfflineTest[2226:185312] Resetting plugins due to page load.
 2015-07-04 18:23:22.132 OfflineTest[2226:185312] Finished load of: file:///Users/sudarshnanjappa/Library/Developer/CoreSimulator/Devices/02CFFB4C-F137-48D6-97A5-AD7AFC8CF93B/data/Containers/Bundle/Application/57FC2509-3BA8-48BF-AAC6-E8F81D46FF7A/OfflineTest.app/www/index.html
 2015-07-04 18:24:43.379 OfflineTest[2226:186223] Terminating since there is no system app.
+2015-07-06 12:52:18.232 OfflineTest[6343:498704] Apache Cordova native platform version 3.8.0 is starting.
+2015-07-06 12:52:18.234 OfflineTest[6343:498704] Multi-tasking -> Device: YES, App: YES
+2015-07-06 12:52:18.248 OfflineTest[6343:498704] Unlimited access to network resources
+2015-07-06 12:52:18.259 OfflineTest[6343:498704] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-07-06 12:52:18.808 OfflineTest[6343:498704] Resetting plugins due to page load.
+2015-07-06 12:52:26.866 OfflineTest[6343:498704] Finished load of: file:///Users/sudarshnanjappa/Library/Developer/CoreSimulator/Devices/02CFFB4C-F137-48D6-97A5-AD7AFC8CF93B/data/Containers/Bundle/Application/E87EC6FA-7202-490A-A316-A3B5EADFD29C/OfflineTest.app/www/index.html
+2015-07-06 13:06:47.245 OfflineTest[6448:502941] Apache Cordova native platform version 3.8.0 is starting.
+2015-07-06 13:06:47.246 OfflineTest[6448:502941] Multi-tasking -> Device: YES, App: YES
+2015-07-06 13:06:47.247 OfflineTest[6448:502941] Unlimited access to network resources
+2015-07-06 13:06:47.249 OfflineTest[6448:502941] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-07-06 13:06:47.362 OfflineTest[6448:502941] Resetting plugins due to page load.
+2015-07-06 13:06:50.098 OfflineTest[6448:502941] Finished load of: file:///Users/sudarshnanjappa/Library/Developer/CoreSimulator/Devices/02CFFB4C-F137-48D6-97A5-AD7AFC8CF93B/data/Containers/Bundle/Application/22224727-0E29-4EF9-846F-A127036E1381/OfflineTest.app/www/index.html
+2015-07-06 13:07:01.748 OfflineTest[6448:502958] void SendDelegateMessage(NSInvocation *): delegate (webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode

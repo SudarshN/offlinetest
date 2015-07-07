@@ -9,7 +9,8 @@
  * After the client library has loaded, this init() function is called.
  * The init() function loads the helloworldendpoints API.
  */
-
+var valueinthetextbox;
+var arrayofvaluestobepushed= [ ];
 function init() {
 	
 	// You need to pass the root path when you load your API
@@ -36,12 +37,15 @@ function init() {
 function loadCallback () {	
 	// Enable the button actions
 	
-	if(app.internetconnection == 'No network connection')
+	if(app.internetconnection == 'WiFi connection')
 	{
 		
 		var user = JSON.parse(localStorage.getItem('HelloClass'));
-		var x = document.getElementById("mytextarea");
-		x.value =user.message;
+		for(var i=0; i<arrayofvaluestobepushed.length;i++){
+	    	
+	    	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': arrayofvaluestobepushed[i]});
+	    	request.execute(sayHelloCallback);
+		}
 	} 
 	enableButtons ();
 }
@@ -54,10 +58,51 @@ function enableButtons () {
 	// Update the button label now that the button is active
 	btn.value="Click me for a generic greeting";
 	
+	
+	btn = document.getElementById("saveoffline");
+	btn.onclick= function(){saveOffline();};
 	// Set the onclick action for the second button
 	
 }
 
+function saveOffline()
+{
+	var x = document.getElementById("mytextarea");
+	valueinthetextbox = x.value;
+	 db.transaction(populateDB, errorCB, successCB);
+}
+
+function populateDB(tx) {   
+	var sql = 'INSERT INTO SoccerPlayer(Name,Club) VALUES(?,?)';
+	tx.executeSql(sql,[valueinthetextbox,"chest press"]);
+   // tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Sudarsh", "valueinthetextbox")');
+    
+}
+
+function errorCB(err) {
+    alert("Error processing SQL: "+err.code);
+}
+
+//function will be called when process succeed
+function successCB() {
+    alert("success!");
+    db.transaction(queryDB,errorCB);
+}
+
+function queryDB(tx){
+    tx.executeSql('SELECT * FROM SoccerPlayer',[],querySuccess,errorCB);
+}
+
+function querySuccess(tx,result){
+	 console.log('render list'); 
+	    var len = result.rows.length;
+	    console.log('len: '+len);
+	    for(var i=0; i<len;i++){
+	    	arrayofvaluestobepushed.push(result.rows.item(i).Name);
+	       
+	    }
+	    console.log(arrayofvaluestobepushed);
+}
 /*
  * Execute a request to the sayHello() endpoints function
  */
@@ -90,11 +135,11 @@ function greetByName () {
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	
-	localStorage.setItem("HelloClass", JSON.stringify({
+	/*localStorage.setItem("HelloClass", JSON.stringify({
 	     Id : response.id,
 	    message: response.message 
-	}));   
-	if(app.internetconnection == 'No network connection')
+	}));  */ 
+	/*if(app.internetconnection == 'No network connection')
 		{
 			alert("No Internet Connection try ot strore");
 			var user = JSON.parse(localStorage.getItem('HelloClass'));
@@ -102,9 +147,9 @@ function sayHelloCallback (response) {
 			x.value = user.message;
 		} 
 	else				  
-	{
+	{*/
 	alert(response.message);	
-	}
+	//}
 	
 	//console.log( app.internetconnection);
 	
